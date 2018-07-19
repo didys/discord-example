@@ -6,9 +6,11 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.reply('nge pong');
-  	}
+  // If the message is "ping"
+  if (message.content === 'ping') {
+    // Send "pong" to the same channel
+    message.channel.send('saya pong');
+  }
 });
 
 // THIS  MUST  BE  THIS  WAY
