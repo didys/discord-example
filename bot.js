@@ -10,6 +10,7 @@ client.on('message', message => {
   if (message.content === 'ping') {
     // Send "pong" to the same channel
     message.channel.send('saya pong');
+    message.reply(message.author.username);
   }
 });
 
