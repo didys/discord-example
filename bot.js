@@ -70,9 +70,9 @@ client.on('message', message => {
         .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
         .addBlankField(true)
         .addField('Inline Field 3', 'You can have a maximum of 25 fields.', true)
-        // .setImage('http://i.imgur.com/yVpymuV.png')
+        .setImage('http://i.imgur.com/yVpymuV.png')
         .setFooter('This is the footer text, it can hold 2048 characters', 'http://i.imgur.com/w1vhFSR.png')
-        // .setTimestamp()
+        .setTimestamp()
       message.channel.send({embed})
       break;
     case "!check" :
