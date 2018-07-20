@@ -58,10 +58,10 @@ client.on('message', message => {
     case "!stats" :
       const embed = new Discord.RichEmbed()
         .setColor('#ffc107') // Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-        // .setAuthor('CryptoBot', cmImageRoot + 'bitcoin.png')
-        // .setTitle('This is your title, it can hold 256 characters')
-        // .setURL('https://discord.js.org/#/docs/main/indev/class/RichEmbed')
-        // .setDescription('This is the main body of text, it can hold 2048 characters.')
+        .setAuthor('CryptoBot', 'https://s2.coinmarketcap.com/static/cloud/img/CoinMarketCap.png')
+        .setTitle('This is your title, it can hold 256 characters')
+        .setURL('https://discord.js.org/#/docs/main/indev/class/RichEmbed')
+        .setDescription('This is the main body of text, it can hold 2048 characters.')
         .setThumbnail('https://s2.coinmarketcap.com/static/cloud/img/CoinMarketCap.png')
         .addField('Total server', client.guilds.size, true)
         .addField('Total users', client.guilds.reduce((mem, g) => mem += g.memberCount, 0), true)
