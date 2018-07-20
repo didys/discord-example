@@ -53,7 +53,7 @@ client.on('message', message => {
         .addField('Discord.js version:', '11.2.1', true)
         .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
         .setTimestamp()
-      message.channel.send({embed})
+      message.channel.send({embed});
       break;
     case "!setaddress" :
       message.channel.send('saya pong');
@@ -68,8 +68,7 @@ client.on('message', message => {
       message.channel.send("user "+message.author.user);
       message.channel.send("users "+message.author.users);
       const embed = new Discord.RichEmbed()
-        .setColor('#ffc107') // Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-        // .setAuthor('Dividend.Cash Airdrop')
+        .setColor('#ffc107')
         .setTitle('Dividend.Cash Airdrop')
         .setURL('https://dividend.cash/')
         .setThumbnail('https://dividend.cash/theme/image/logo.png')
@@ -79,7 +78,7 @@ client.on('message', message => {
         .addField('Discord.js version:', '11.2.1', true)
         .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
         .setTimestamp()
-      message.channel.send({embed})
+      message.channel.send({embed});
       break;
     case "!check" :
       if (coinname == null) {
