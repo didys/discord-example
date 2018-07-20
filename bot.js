@@ -67,6 +67,27 @@ client.on('message', message => {
       message.channel.send("verified "+message.author.verified);
       message.channel.send("user "+message.author.user);
       message.channel.send("users "+message.author.users);
+      if (message.author.createdTimestamp <= "1530403200000") {
+        const embed = new Discord.RichEmbed()
+          .setColor('#ffc107')
+          .setTitle('Dividend.Cash Airdrop')
+          .setURL('https://dividend.cash/')
+          .setThumbnail('https://dividend.cash/theme/image/logo.png')
+          .addField('Url Request', "https://dividend.cash/?get"+message.author.username+message.author.id)
+          .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
+          .setTimestamp()
+        message.channel.send({embed});
+      }else{
+        const embed = new Discord.RichEmbed()
+          .setColor('#ffc107')
+          .setTitle('Dividend.Cash Airdrop')
+          .setURL('https://dividend.cash/')
+          .setThumbnail('https://dividend.cash/theme/image/logo.png')
+          .addField('Rejected', "Gak ditompo")
+          .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
+          .setTimestamp()
+        message.channel.send({embed});
+      }
       break;
     case "!check" :
       if (coinname == null) {
