@@ -29,21 +29,31 @@ client.on('message', message => {
       message.channel.send('Pong!');
       break;
     case "!help" :
-      var embed = new Discord.RichEmbed()
-      .setColor('#ffc107')
-      .addField(':level_slider: COMMANDS', 'All commands for the bot')
-      .addField('$help', 'See all commands in DM')
-      .addField('$hhelp', 'See all commands in global channel')
-      .addField('$money <coin>', 'See the value of a currency in USD. \nSupport name and symbol \n__Example :__ `$money bitcoin` or `$money BTC`')
-      .addField('$sats <coin>', 'See the value of a currency in sats. \nSupport name and symbol \n__Example :__ `$sats Ethereum` or `$sats ETH`')
-      .addField('$marketcap', 'See all informations about the martket cap')
-      .addField('$stats', 'Some stats about the bot')
-      .addField(':dollar: SUPPORT ME', 'You can send me some cryptocurrencies to help me in the development of the bot')
-      .addField('Dogecoin', '`DNbD8 Dnts staV JxeC 54gT wdGL LdLW XuTgX`')
-      .addField('Litecoin', '`LPTu 5JMw BVAw RLni5 Jv6R 9xK9 Y9QX vXo1f`')
-      .addField('Dash', '`XTxxG FTdY f2sv rAi2 Ym3S GUbG XnBL 12gor`')
-      .addField('Ethereum', '`0x58 94e3 2413 34df 48f5b 1992 1444 2bfd b0bf f4b5b`');
-      message.channel.send(embed);
+      message.delete()
+      message.channel.send({
+      embed: {
+          color: 16750848,
+          title: 'Please wait ...'
+        }
+      }).then((message) => {
+          request('https://api.coinmarketcap.com/v1/global/', function (err, response, body) {
+            if (err) {
+              message.channel.sendMessage('```Error! ' + err + '```')
+              return false
+            }
+
+            const data = JSON.parse(body)
+            const embed = new Discord.RichEmbed()
+              .setColor('#ffc107') // Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
+              .setTitle('Market Capitalization Stats')
+              .setDescription('[More info here](https://coinmarketcap.com/)')
+              .setThumbnail('https://s2.coinmarketcap.com/static/cloud/img/CoinMarketCap.png')
+              .addField('Total Market Cap (in USD)', '$' + data.total_market_cap_usd)
+              .addField('Last 24 hour (in USD)', '$' + data.total_24h_volume_usd)
+              .addField('Total Bitcoin percentage', data.bitcoin_percentage_of_market_cap + '%')
+            message.edit({embed})
+          })
+      })
       break;
     case "!check" :
       if (coinname == null) {
