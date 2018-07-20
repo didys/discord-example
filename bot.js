@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const request = require('request');
-const moment = require('moment');
+// const moment = require('moment');
 
 client.on('ready', () => {
     console.log('I am ready!');
