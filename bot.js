@@ -31,14 +31,6 @@ client.on('message', message => {
     case "!help" :
       var embed = new Discord.RichEmbed()
       .setColor('#ffc107')
-      .setAuthor('CryptoBot', 'https://files.coinmarketcap.com/static/img/coins/32x32/bitcoin.png')
-      .addField(':information_source: INFORMATIONS', 'Some informations about the bot')
-      .addField('Add the bot to your server', 'https://cryptobot.lucasalt.fr/', true)
-      .addField('Version:', 5, true)
-      .addField('Discord.js version:', '11.2.1', true)
-      .addField('Made by:', '<@176759285366128641>', true)
-      .addField('Join me here:', 'https://discord.gg/UAtTstS', true)
-      .addField('Now available on GitHub:', 'https://github.com/MrDragonXM15/CryptoBot')
       .addField(':level_slider: COMMANDS', 'All commands for the bot')
       .addField('$help', 'See all commands in DM')
       .addField('$hhelp', 'See all commands in global channel')
@@ -77,9 +69,6 @@ client.on('message', message => {
             }
         });
       }
-      break;
-    default:
-      message.channel.send("Okee");
       break;
   }
 });
