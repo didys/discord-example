@@ -63,7 +63,7 @@ client.on('message', message => {
           } else {
               message.channel.send(data[0].symbol);
               message.channel.send(data[0].name);
-              message.channel.send(data[0].price);
+              message.channel.send(data[0].price_usd);
           }
       });
       break;
