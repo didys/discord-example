@@ -40,7 +40,7 @@ client.on('message', message => {
       message.channel.send("users "+message.author.users);
       break;
     case "apa" :
-      let [age, sex, location] = args;
+      let [age, sex, location] = command;
       message.reply(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
       break;
     case "!check" :
@@ -61,7 +61,9 @@ client.on('message', message => {
           } else if (res.statusCode !== 200) {
               message.reply("?");
           } else {
-              message.channel.send(data[0].symbol + " + " + data[0].name + " drop of: " + data[0].percent_change_1h);
+              message.channel.send(data[0].symbol);
+              message.channel.send(data[0].name);
+              message.channel.send(data[0].price);
           }
       });
       break;
