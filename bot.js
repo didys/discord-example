@@ -44,7 +44,7 @@ client.on('message', message => {
       message.reply(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
       break;
     case "!check" :
-      let [cmd, coin] = command;
+      let [cmds, coin] = command;
       if (coin == null) {
           message.channel.send('Invalid grope command');
       }
