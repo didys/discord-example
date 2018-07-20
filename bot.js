@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const request = require('request');
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -21,7 +22,8 @@ client.on('message', message => {
   //   message.channel.send("user "+message.author.user);
   //   message.channel.send("users "+message.author.users);
   // }
-  switch (message.content) {
+  var command = message.content.split(" ");
+  switch (command[0]) {
     case "ping" :
       message.channel.send('Pong!');
       break;
@@ -36,6 +38,32 @@ client.on('message', message => {
       message.channel.send("verified "+message.author.verified);
       message.channel.send("user "+message.author.user);
       message.channel.send("users "+message.author.users);
+      break;
+    case "apa" :
+      let [age, sex, location] = args;
+      message.reply(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
+      break;
+    case "!check" :
+      if (command[1] == null) {
+          message.channel.send('Invalid grope command');
+      }
+      message.channel.send("Scanning...");
+      var url = 'https://api.coinmarketcap.com/v1/ticker/'+command[1];
+      request.get({
+          url: url,
+          json: true,
+          headers: {
+              'User-Agent': 'request'
+          }
+      }, (err, res, data) => {
+          if (err) {
+              message.reply("?");
+          } else if (res.statusCode !== 200) {
+              message.reply("?");
+          } else {
+              message.channel.send(data[0].symbol + " + " + data[0].name + " drop of: " + data[0].percent_change_1h);
+          }
+      });
       break;
   }
 });
