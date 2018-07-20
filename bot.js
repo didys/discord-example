@@ -23,7 +23,8 @@ client.on('message', message => {
   //   message.channel.send("users "+message.author.users);
   // }
   var command = message.content.split(" ");
-  switch (command[0]) {
+  let [cmd, coinname] = command;
+  switch (cmd) {
     case "ping" :
       message.channel.send('Pong!');
       break;
@@ -39,17 +40,12 @@ client.on('message', message => {
       message.channel.send("user "+message.author.user);
       message.channel.send("users "+message.author.users);
       break;
-    case "apa" :
-      let [cmd, age, sex, location] = command;
-      message.reply(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
-      break;
     case "!check" :
-      let [cmds, coin] = command;
-      if (coin == null) {
+      if (coinname == null) {
           message.channel.send('Invalid grope command');
       }
-      message.channel.send("Scanning..."+coin);
-      var url = 'https://api.coinmarketcap.com/v1/ticker/'+coin;
+      message.channel.send("Scanning..."+coinname);
+      var url = 'https://api.coinmarketcap.com/v1/ticker/'+coinname;
       request.get({
           url: url,
           json: true,
