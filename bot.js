@@ -40,7 +40,7 @@ client.on('message', message => {
       message.channel.send("users "+message.author.users);
       break;
     case "apa" :
-      let [age, sex, location] = command;
+      let [command, age, sex, location] = command;
       message.reply(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
       break;
     case "!check" :
