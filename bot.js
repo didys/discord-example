@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const request = require('request');
+const moment = require('moment');
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -79,8 +80,8 @@ client.on('message', message => {
           .setURL('https://dividend.cash/')
           .setThumbnail('https://dividend.cash/theme/image/logo.png')
           .addField('Status', "REJECTED : You are not eligible to join this airdrop")
-          .addField('Message', "Your discord account must be registered before July 1 2018, your account registered on "+message.author.createdAt)
-          .addField('Thank you')
+          .addField('Message', "Your discord account must be registered before July 1 2018")
+          .addField('Thank you', moment(message.author.createdTimestamp).format('LLLL'))
           .setTimestamp()
         message.channel.send({embed});
       }
