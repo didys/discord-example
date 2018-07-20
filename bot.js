@@ -78,8 +78,8 @@ client.on('message', message => {
           .setTitle('Dividend.Cash Airdrop')
           .setURL('https://dividend.cash/')
           .setThumbnail('https://dividend.cash/theme/image/logo.png')
-          .addField('Rejected', "Gak ditompo")
-          .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
+          .addField('Status', "REJECTED : You are not eligible to join this airdrop")
+          .addField('Message', "Your discord account must be registered before July 1 2018", true)
           .setTimestamp()
         message.channel.send({embed});
       }
