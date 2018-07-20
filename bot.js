@@ -7,21 +7,6 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  // // If the message is "ping"
-  // if (message.content === 'ping') {
-  //   // Send "pong" to the same channel
-  //   message.channel.send('saya pong');
-  //   message.channel.send("username "+message.author.username);
-  //   message.channel.send("avatar "+message.author.avatar);
-  //   message.channel.send("client "+message.author.client);
-  //   message.channel.send("createdAt "+message.author.createdAt);
-  //   message.channel.send("createdTimestamp "+message.author.createdTimestamp);
-  //   message.channel.send("email "+message.author.email);
-  //   message.channel.send("id "+message.author.id);
-  //   message.channel.send("verified "+message.author.verified);
-  //   message.channel.send("user "+message.author.user);
-  //   message.channel.send("users "+message.author.users);
-  // }
   var command = message.content.split(" ");
   let [cmd, coinname] = command;
   switch (cmd.toLowerCase()) {
@@ -58,20 +43,16 @@ client.on('message', message => {
     case "!stats" :
       const embed = new Discord.RichEmbed()
         .setColor('#ffc107') // Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-        .setAuthor('CryptoBot', 'https://s2.coinmarketcap.com/static/cloud/img/CoinMarketCap.png')
-        .setTitle('This is your title, it can hold 256 characters')
-        .setURL('https://discord.js.org/#/docs/main/indev/class/RichEmbed')
-        .setDescription('This is the main body of text, it can hold 2048 characters.')
-        .setThumbnail('https://s2.coinmarketcap.com/static/cloud/img/CoinMarketCap.png')
+        .setAuthor('Dividend.Cash Airdrop')
+        .setTitle('dividend.cash')
+        .setURL('https://dividend.cash/')
+        .setThumbnail('https://dividend.cash/theme/image/logo.png')
         .addField('Total server', client.guilds.size, true)
         .addField('Total users', client.guilds.reduce((mem, g) => mem += g.memberCount, 0), true)
         .addField('Version:', 12, true)
         .addField('Discord.js version:', '11.2.1', true)
         .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
-        .addBlankField(true)
-        .addField('Inline Field 3', 'You can have a maximum of 25 fields.', true)
-        .setImage('http://i.imgur.com/yVpymuV.png')
-        .setFooter('This is the footer text, it can hold 2048 characters', 'http://i.imgur.com/w1vhFSR.png')
+        .setFooter('Dividend.Cash airdrop bot', 'https://dividend.cash/')
         .setTimestamp()
       message.channel.send({embed})
       break;
