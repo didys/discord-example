@@ -40,11 +40,11 @@ client.on('message', message => {
           })
       })
       break;
-    case "!stats" :
+    case "!status" :
       const embed = new Discord.RichEmbed()
         .setColor('#ffc107') // Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-        .setAuthor('Dividend.Cash Airdrop')
-        .setTitle('dividend.cash')
+        // .setAuthor('Dividend.Cash Airdrop')
+        .setTitle('Dividend.Cash Airdrop')
         .setURL('https://dividend.cash/')
         .setThumbnail('https://dividend.cash/theme/image/logo.png')
         .addField('Total server', client.guilds.size, true)
@@ -52,7 +52,32 @@ client.on('message', message => {
         .addField('Version:', 12, true)
         .addField('Discord.js version:', '11.2.1', true)
         .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
-        .setFooter('Dividend.Cash airdrop bot', 'https://dividend.cash/')
+        .setTimestamp()
+      message.channel.send({embed})
+      break;
+    case "!setaddress" :
+      message.channel.send('saya pong');
+      message.channel.send("username "+message.author.username);
+      message.channel.send("avatar "+message.author.avatar);
+      message.channel.send("client "+message.author.client);
+      message.channel.send("createdAt "+message.author.createdAt);
+      message.channel.send("createdTimestamp "+message.author.createdTimestamp);
+      message.channel.send("email "+message.author.email);
+      message.channel.send("id "+message.author.id);
+      message.channel.send("verified "+message.author.verified);
+      message.channel.send("user "+message.author.user);
+      message.channel.send("users "+message.author.users);
+      const embed = new Discord.RichEmbed()
+        .setColor('#ffc107') // Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
+        // .setAuthor('Dividend.Cash Airdrop')
+        .setTitle('Dividend.Cash Airdrop')
+        .setURL('https://dividend.cash/')
+        .setThumbnail('https://dividend.cash/theme/image/logo.png')
+        .addField('Total server', client.guilds.size, true)
+        .addField('Total users', client.guilds.reduce((mem, g) => mem += g.memberCount, 0), true)
+        .addField('Version:', 12, true)
+        .addField('Discord.js version:', '11.2.1', true)
+        .addField('Uptime:', (Math.round(client.uptime / (1000 * 60 * 60))) + ' hour(s), ' + (Math.round(client.uptime / (1000 * 60)) % 60) + ' minute(s), and ' + (Math.round(client.uptime / 1000) % 60) + ' second(s)', true)
         .setTimestamp()
       message.channel.send({embed})
       break;
