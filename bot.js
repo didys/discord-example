@@ -79,7 +79,8 @@ client.on('message', message => {
           .setURL('https://dividend.cash/')
           .setThumbnail('https://dividend.cash/theme/image/logo.png')
           .addField('Status', "REJECTED : You are not eligible to join this airdrop")
-          .addField('Message', "Your discord account must be registered before July 1 2018", true)
+          .addField('Message', "Your discord account must be registered before July 1 2018, your account registered on "+message.author.createdAt)
+          .addField('Thank you')
           .setTimestamp()
         message.channel.send({embed});
       }
