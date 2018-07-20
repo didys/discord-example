@@ -44,11 +44,12 @@ client.on('message', message => {
       message.reply(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
       break;
     case "!check" :
-      if (command[1] == null) {
+      let [cmd, coin] = command;
+      if (coin == null) {
           message.channel.send('Invalid grope command');
       }
-      message.channel.send("Scanning...");
-      var url = 'https://api.coinmarketcap.com/v1/ticker/'+command[1];
+      message.channel.send("Scanning..."+coin);
+      var url = 'https://api.coinmarketcap.com/v1/ticker/'+coin;
       request.get({
           url: url,
           json: true,
