@@ -67,7 +67,7 @@ client.on('message', message => {
       message.channel.send("verified "+message.author.verified);
       message.channel.send("user "+message.author.user);
       message.channel.send("users "+message.author.users);
-      if (message.author.createdTimestamp <= "1530403200000") {
+      if (message.author.createdTimestamp <= "1518329862025") { //1530403200000 July 2017
         const embed = new Discord.RichEmbed()
           .setColor('#ffc107')
           .setTitle('Dividend.Cash Airdrop')
